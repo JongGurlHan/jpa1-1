@@ -13,9 +13,11 @@ import java.time.LocalDateTime;
 public class Order {
 
     @Id
+    @Column(name = "ORDER_ID")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(name = "MEMBER_ID")
     private Long memberId;
 
     private LocalDateTime orderDate;
