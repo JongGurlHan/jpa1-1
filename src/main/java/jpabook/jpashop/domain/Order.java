@@ -28,6 +28,12 @@ public class Order {
     @OneToMany(mappedBy = "item")
     private List<OrderItem> orderItems = new ArrayList<>();
 
+    @ManyToOne // 연관관계의 주인
+    @JoinColumn(name = "DELIVERY_ID")
+    private Delivery delivery;
+
+
+
     public void addOrderItem(OrderItem orderItem) {
         orderItems.add(orderItem);
         orderItem.setOrder(this);
