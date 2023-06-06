@@ -6,9 +6,10 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Getter
-@Setter
-public class Item {
+@Getter @Setter
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn
+public abstract class Item extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,6 +20,5 @@ public class Item {
 
     private int price;
     private int stockQuantity;
-
 
 }

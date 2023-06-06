@@ -10,7 +10,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-public class Delivery {
+public class Delivery extends BaseEntity{
 
     //회원 그룹
     @Id
