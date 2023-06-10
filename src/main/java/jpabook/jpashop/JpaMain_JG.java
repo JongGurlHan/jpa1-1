@@ -30,7 +30,6 @@ public class JpaMain_JG {
             em.persist(order);
 
             Delivery delivery = new Delivery();
-            delivery.addOrder(order);
             em.persist(delivery);
 
 

@@ -7,6 +7,8 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static javax.persistence.FetchType.LAZY;
+
 @Entity
 @Getter
 @Setter
@@ -14,18 +16,16 @@ public class Delivery extends BaseEntity{
 
     //회원 그룹
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) //기본키생성 DB에 위임
-    @Column(name = "DELIVERY_ID")
+    @GeneratedValue
     private Long id;
 
-    private String address;
+    private String city;
+    private String street;
+    private String zipcode;
 
-    @OneToMany(mappedBy = "delivery")
-    private List<Order> orders = new ArrayList<>();
+    private DeliverStatus status;
 
-
-    public void addOrder(Order order) {
-        order.setDelivery(this);
-        orders.add(order);
-    }
+    @OneToOne(mappedBy = "delivery", fetch = LAZY)
+    private Order order;
 }
+
