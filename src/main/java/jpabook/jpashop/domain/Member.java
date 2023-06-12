@@ -17,14 +17,12 @@ public class Member extends BaseEntity{
     @Column(name = "MEMBER_ID")
     private Long id;
 
+    private String name;
+
+    @Embedded //생략해도 되지만 명확하게 값타임을 명시하기 위해 표시
+    private Address address;
+
     @OneToMany(mappedBy = "member")
     private List<Order> orders = new ArrayList<>();//관례상 초기화
 
-    private String name;
-
-    private String city;
-
-    private String street;
-
-    private String zipcode;
 }

@@ -19,9 +19,8 @@ public class Delivery extends BaseEntity{
     @GeneratedValue
     private Long id;
 
-    private String city;
-    private String street;
-    private String zipcode;
+    @Embedded //생략해도 되지만 명확하게 값타임을 명시하기 위해 표시
+    private Address address;
 
     private DeliverStatus status;
 
